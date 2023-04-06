@@ -30,12 +30,16 @@ function system(){
         charactor_list = charactor_list.concat(Mii_list);
     }
 
-    for(var i; i<target; i++){
-        var n = Math.floor(Math.random()*charactor_list.length);
-        result_list.push(charactor_list[n]);
-    }
+    // for(var i; i<target; i++){
+    //     var n = Math.floor(Math.random()*charactor_list.length);
+    //     result_list.push(charactor_list[n]);
+    // }
 
-    document.getElementById("answer").textContent = result_list;
+    var n = Math.floor(Math.random()*charactor_list.length);
+    // result_list.push(charactor_list[n]);
+
+    document.getElementById("answer").textContent = charactor_list[n];
+    // document.getElementById("answer").textContent = result_list;
     document.getElementById("number").textContent = charactor_list.length;
 
 }
