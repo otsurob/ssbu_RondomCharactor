@@ -36,13 +36,15 @@ function system(){
 
     for(var i=0; i<target; i++){
         var n = Math.floor(Math.random()*first_list.length);
-        result1_list[i] = first_list[n];
+        // result1_list[i] = first_list[n];
+        result1_list.push(first_list[n]);
         first_list.splice(n, 1);
     }
     
     for(var j=0; j<target; j++){
         var n = Math.floor(Math.random()*second_list.length);
-        result2_list[i] = second_list[n];
+        // result2_list[j] = second_list[n];
+        result2_list.push(second_list[n]);
         second_list.splice(n, 1);
     }
 
