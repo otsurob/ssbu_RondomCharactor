@@ -30,7 +30,7 @@ function system(){
         charactor_list = charactor_list.concat(Mii_list);
     }
 
-    for(var i; i<target; i++){
+    for(var i=0; i<target; i++){
         var n = Math.floor(Math.random()*charactor_list.length);
         result_list[i] = charactor_list[n];
     }
