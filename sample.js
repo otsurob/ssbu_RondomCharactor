@@ -1,7 +1,7 @@
 function system(){
     let target = document.getElementById("target").value;
 
-    var result_list = [];
+    var result_list = ['空です'];
 
     var DLC1 = document.selectList.charactor[0];
     var DLC2 = document.selectList.charactor[1];
