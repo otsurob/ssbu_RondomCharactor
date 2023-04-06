@@ -1,7 +1,8 @@
 function system(){
     let target = document.getElementById("target").value;
 
-    var result_list = ['空です'];
+    var result1_list = ['はずれ'];
+    var result2_list = ['はずれ'];
 
     var DLC1 = document.selectList.charactor[0];
     var DLC2 = document.selectList.charactor[1];
@@ -30,16 +31,27 @@ function system(){
         charactor_list = charactor_list.concat(Mii_list);
     }
 
+    var first_list = charactor_list;
+    var second_list = charactor_list;
+
     for(var i=0; i<target; i++){
-        var n = Math.floor(Math.random()*charactor_list.length);
-        result_list[i] = charactor_list[n];
+        var n = Math.floor(Math.random()*first_list.length);
+        result1_list[i] = first_list[n];
+        first_list.splice(n, 1);
+    }
+    
+    for(var j=0; j<target; j++){
+        var n = Math.floor(Math.random()*second_list.length);
+        result2_list[i] = second_list[n];
+        second_list.splice(n, 1);
     }
 
     // var n = Math.floor(Math.random()*charactor_list.length);
     // result_list.push(charactor_list[n]);
 
     // document.getElementById("answer").textContent = charactor_list[n];
-    document.getElementById("answer").textContent = result_list;
+    document.getElementById("answer1").textContent = "Team A : " + result1_list;
+    document.getElementById("answer2").textContent = "Team B : " + result2_list;
     document.getElementById("number").textContent = charactor_list.length;
 
 }
