@@ -31,16 +31,22 @@ function system(){
         charactor_list = charactor_list.concat(Mii_list);
     }
 
-    var first_list = randf(target, charactor_list.length);
-    var second_list = randf(target, charactor_list.length);
+    if(target<=0 || target>charactor_list.length){
+        document.getElementById("answer1").textContent = "適切な数値を入力してください";
+        document.getElementById("answer2").textContent = "※1～" + charactor_list.length;
+    }else{
+        var first_list = randf(target, charactor_list.length);
+        var second_list = randf(target, charactor_list.length);
 
-    for(var i=0; i<target; i++){
-        result1_list.push(charactor_list[first_list[i]]);
-        result2_list.push(charactor_list[second_list[i]]);
+        for(var i=0; i<target; i++){
+            result1_list.push(charactor_list[first_list[i]]);
+            result2_list.push(charactor_list[second_list[i]]);
+        }
+
+        document.getElementById("answer1").textContent = "Team A : " + result1_list;
+        document.getElementById("answer2").textContent = "Team B : " + result2_list;
+
     }
-
-    document.getElementById("answer1").textContent = "Team A : " + result1_list;
-    document.getElementById("answer2").textContent = "Team B : " + result2_list;
 
 }
 
