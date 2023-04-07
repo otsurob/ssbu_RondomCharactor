@@ -1,8 +1,8 @@
 function system(){
     let target = document.getElementById("target").value;
 
-    var result1_list = ['はずれ'];
-    var result2_list = ['はずれ'];
+    var result1_list = [];
+    var result2_list = [];
 
     var DLC1 = document.selectList.charactor[0];
     var DLC2 = document.selectList.charactor[1];
@@ -31,29 +31,26 @@ function system(){
         charactor_list = charactor_list.concat(Mii_list);
     }
 
-    var first_list = charactor_list;
-    var second_list = charactor_list;
+    var first_list = randf(target, charactor_list.length);
+    var second_list = randf(target, charactor_list.length);
 
     for(var i=0; i<target; i++){
-        var n = Math.floor(Math.random()*first_list.length);
-        // result1_list[i] = first_list[n];
-        result1_list.push(first_list[n]);
-        first_list.splice(n, 1);
-    }
-    
-    for(var j=0; j<target; j++){
-        var n = Math.floor(Math.random()*second_list.length);
-        // result2_list[j] = second_list[n];
-        result2_list.push(second_list[n]);
-        second_list.splice(n, 1);
+        result1_list.push(charactor_list[first_list[i]]);
+        result2_list.push(charactor_list[second_list[i]]);
     }
 
-    // var n = Math.floor(Math.random()*charactor_list.length);
-    // result_list.push(charactor_list[n]);
-
-    // document.getElementById("answer").textContent = charactor_list[n];
     document.getElementById("answer1").textContent = "Team A : " + result1_list;
     document.getElementById("answer2").textContent = "Team B : " + result2_list;
-    document.getElementById("number").textContent = charactor_list.length;
 
+}
+
+function randf(x, list_size){
+    rand_list = [];
+    while(rand_list.length!=x){
+        var n = Math.floor(Math.random()*list_size);
+        if(!rand_list.includes(n)){
+            rand_list.push(n);
+        }
+    }
+    return rand_list;
 }
